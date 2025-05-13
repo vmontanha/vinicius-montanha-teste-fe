@@ -36,7 +36,7 @@ export default function HomePage() {
   }, [])
 
   useEffect(() => {
-    setCurrentPage(1) // resetar para página 1 ao filtrar/ordenar
+    setCurrentPage(1)
   }, [filteredProducts])
 
   const handleFilter = ({

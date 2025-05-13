@@ -26,7 +26,7 @@ export default function ProductForm({ onAdd, onClose }: ProductFormProps) {
     }
 
     const newProduct: Product = {
-      id: Date.now(), // temporário
+      id: Date.now(),
       title,
       price: parseFloat(price),
       description,
