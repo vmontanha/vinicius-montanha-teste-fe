@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gerenciador de Produtos
 
-## Getting Started
+Aplicação desenvolvida como parte de um desafio técnico para desenvolvedor front-end sênior. O sistema consiste em um CRUD completo de produtos, com foco em desempenho, estrutura escalável, responsividade e boas práticas de desenvolvimento.
 
-First, run the development server:
+## Objetivo
+
+Construir uma aplicação em Next.js com TypeScript e Tailwind CSS que permita:
+- Listagem de produtos com nome, descrição, categoria, preço e imagem
+- Cadastro de novos produtos via formulário
+- Filtragem por nome e faixa de preço
+- Ordenação por nome e preço
+- Paginação dos resultados
+- Testes automatizados (unitários e e2e)
+- Integração contínua com execução dos testes a cada push
+
+---
+
+## Tecnologias utilizadas
+
+### Base
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- Axios
+
+### Testes
+- Jest
+- React Testing Library
+- Cypress
+
+### DevOps
+- GitHub Actions
+
+
+
+## Funcionalidades implementadas
+
+- Listagem de produtos com dados reais de uma API pública (FakeStore API)
+
+- Formulário de cadastro de novos produtos com validação
+
+- Filtro por nome e faixa de preço
+
+- Ordenação A-Z, Z-A, preço crescente e decrescente
+
+- Paginação client-side
+
+- Layout responsivo com Tailwind CSS
+
+
+
+
+# Testes automatizados
+
+## Testes Unitários
+
+Executados com Jest e React Testing Library.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  npm test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Cobertura:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- HomePage: snapshot e mock da API
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- ProductForm: validações e envio de produto
 
-## Learn More
+- Pagination: navegação de página
 
-To learn more about Next.js, take a look at the following resources:
+- ProductSorter: ordenação por nome e preço
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Testes end-to-end
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Executados com Cypress.
 
-## Deploy on Vercel
+```bash
+  npm test
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Testes e2e simulam:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Cadastro de produto
+
+- Uso de filtros
+
+- Ordenação e paginação
+
+# Integração Contínua (CI)
+Configuração com GitHub Actions.
+
+Arquivo:
+```bash
+  .github/workflows/ci.yml
+```
+
+```bash
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Instalar dependências
+        run: npm install
+      - name: Executar testes
+        run: npm test
+```
+
+
+
+

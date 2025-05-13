@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  install-and-test:
+  runs-on: ubuntu-latest
+
+  steps:
+    - name: Clonar repositório
+      uses: actions/checkout@v3
+
+    - name: Instalar Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Instalar dependências
+      run: npm install
+
+    - name: Testes unitários (Jest)
+      run: npm test
+
+    - name: Testes E2E (Cypress)
+      uses: cypress-io/github-action@v6
+      with:
+        start: npm run dev
+        wait-on: http://localhost:3000
+        wait-on-timeout: 60

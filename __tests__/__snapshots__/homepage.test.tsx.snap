@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage Snapshot should match the DOM snapshot 1`] = `
+<div>
+  <main
+    class="px-4 py-6 max-w-7xl mx-auto"
+  >
+    <header
+      class="flex justify-between items-center mb-6"
+    >
+      <h1
+        class="text-2xl font-bold"
+      >
+        Gerenciador de Produtos
+      </h1>
+      <button
+        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md"
+      >
+        Novo Produto
+      </button>
+    </header>
+    <div
+      class="bg-white p-4 rounded shadow mb-6 grid gap-4 sm:grid-cols-2 md:grid-cols-4"
+    >
+      <input
+        class="border rounded px-3 py-2 w-full"
+        placeholder="Buscar por nome"
+        type="text"
+        value=""
+      />
+      <input
+        class="border rounded px-3 py-2 w-full"
+        placeholder="Preço mínimo"
+        type="number"
+        value=""
+      />
+      <input
+        class="border rounded px-3 py-2 w-full"
+        placeholder="Preço máximo"
+        type="number"
+        value=""
+      />
+      <button
+        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+      >
+        Filtrar
+      </button>
+    </div>
+    <div
+      class="mb-6 flex justify-end"
+    >
+      <select
+        class="border px-3 py-2 rounded text-sm"
+      >
+        <option
+          disabled=""
+          selected=""
+          value=""
+        >
+          Ordenar por
+        </option>
+        <option
+          value="name-asc"
+        >
+          Nome (A-Z)
+        </option>
+        <option
+          value="name-desc"
+        >
+          Nome (Z-A)
+        </option>
+        <option
+          value="price-asc"
+        >
+          Preço (Crescente)
+        </option>
+        <option
+          value="price-desc"
+        >
+          Preço (Decrescente)
+        </option>
+      </select>
+    </div>
+    <section
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+    >
+      <div
+        class="bg-white shadow rounded-lg p-4 border border-gray-100"
+      >
+        <h2
+          class="text-lg font-semibold"
+        >
+          Produto Teste
+        </h2>
+        <p
+          class="text-sm text-gray-600"
+        >
+          Categoria
+        </p>
+        <p
+          class="text-sm mt-2"
+        >
+          Descrição de teste
+        </p>
+        <p
+          class="text-md font-bold mt-2 text-blue-600"
+        >
+          R$ 
+          100.00
+        </p>
+        <img
+          alt="Produto Teste"
+          class="mt-2 h-32 w-100 object-contain rounded"
+          src="https://via.placeholder.com/150"
+        />
+      </div>
+    </section>
+  </main>
+</div>
+`;
