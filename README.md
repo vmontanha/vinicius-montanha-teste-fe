@@ -1,100 +1,63 @@
 # Gerenciador de Produtos
 
-Aplicação desenvolvida como parte de um desafio técnico para desenvolvedor front-end sênior. O sistema consiste em um CRUD completo de produtos, com foco em desempenho, estrutura escalável, responsividade e boas práticas de desenvolvimento.
+Aplicação desenvolvida como desafio técnico de front-end sênior. O sistema implementa um CRUD completo de produtos com listagem, filtro, ordenação, paginação, testes automatizados e CI/CD.
 
-## Objetivo
+## Tecnologias
 
-Construir uma aplicação em Next.js com TypeScript e Tailwind CSS que permita:
-- Listagem de produtos com nome, descrição, categoria, preço e imagem
-- Cadastro de novos produtos via formulário
-- Filtragem por nome e faixa de preço
-- Ordenação por nome e preço
-- Paginação dos resultados
-- Testes automatizados (unitários e e2e)
-- Integração contínua com execução dos testes a cada push
+- **Next.js 14 (App Router)**
+- **TypeScript**
+- **Tailwind CSS**
+- **Axios**
+- **Jest + Testing Library**
+- **Cypress**
+- **GitHub Actions**
 
----
+## Funcionalidades
 
-## Tecnologias utilizadas
-
-### Base
-- Next.js 14 (App Router)
-- TypeScript
-- Tailwind CSS
-- Axios
-
-### Testes
-- Jest
-- React Testing Library
-- Cypress
-
-### DevOps
-- GitHub Actions
-
-
-
-## Funcionalidades implementadas
-
-- Listagem de produtos com dados reais de uma API pública (FakeStore API)
-
-- Formulário de cadastro de novos produtos com validação
-
-- Filtro por nome e faixa de preço
-
-- Ordenação A-Z, Z-A, preço crescente e decrescente
-
+- Listagem de produtos de API pública (FakeStore API)
+- Cadastro de produtos via formulário validado
+- Filtros por nome e faixa de preço
+- Ordenação por nome (A-Z/Z-A) e preço (crescente/decrescente)
 - Paginação client-side
+- Layout moderno e responsivo com Tailwind CSS
+- Testes unitários e E2E
+- Integração contínua com execução de testes automatizados
 
-- Layout responsivo com Tailwind CSS
-
-
-
-
-# Testes automatizados
-
-## Testes Unitários
-
-Executados com Jest e React Testing Library.
+## Instalação
 
 ```bash
-  npm test
+npm install
+npm run dev
+# Acesse em http://localhost:3000
+```
+
+## Testes
+
+### Unitários (Jest)
+
+```bash
+npm test
 ```
 
 Cobertura:
+- HomePage
+- ProductForm
+- Pagination
+- ProductSorter
 
-- HomePage: snapshot e mock da API
-
-- ProductForm: validações e envio de produto
-
-- Pagination: navegação de página
-
-- ProductSorter: ordenação por nome e preço
-
-## Testes end-to-end
-
-Executados com Cypress.
+### E2E (Cypress)
 
 ```bash
-  npm test
+npx cypress open
 ```
 
-## Testes e2e simulam:
+Fluxo testado: adicionar produto, filtrar e ordenar
 
-- Cadastro de produto
+## CI - GitHub Actions
 
-- Uso de filtros
+Workflow: `.github/workflows/ci.yml`
 
-- Ordenação e paginação
-
-# Integração Contínua (CI)
-Configuração com GitHub Actions.
-
-Arquivo:
-```bash
-  .github/workflows/ci.yml
-```
-
-```bash
+```yaml
 name: CI
 
 on:
@@ -106,15 +69,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-      - name: Instalar dependências
-        run: npm install
-      - name: Executar testes
-        run: npm test
+      - run: npm install
+      - run: npm test
 ```
-
-
-
-
